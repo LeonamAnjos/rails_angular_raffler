@@ -1,2 +1,2 @@
-angular.module("Raffler", [])
+angular.module("Raffler", ["ngResource"])
 angular.module("Raffler").controller("RaffleCtrl", @RaffleCtrl)    

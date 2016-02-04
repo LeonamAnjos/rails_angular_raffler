@@ -1,9 +1,6 @@
-@RaffleCtrl = ($scope) ->
-    $scope.entries = [
-        {name: "Leonam"}
-        {name: "Rosana"}
-        {name: "Gabriel"}
-    ]
+@RaffleCtrl = ($scope, $resource) ->
+    Entry = $resource("/entries/:id", {id: "@id"}, {update: {method: "PUT"})
+    $scope.entries = Entry.query()
     
     $scope.addEntry = ->
         $scope.entries.push($scope.newEntry)
