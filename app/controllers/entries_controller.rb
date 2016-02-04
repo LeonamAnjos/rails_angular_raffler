@@ -2,23 +2,25 @@ class EntriesController < ApplicationController
     respond_to :json
     
     def index
-        respond_with Entry.all
+        @entries = Entry.all
+        #respond_with @entries
+        render json: @entries
     end
     
     def show
-        respond_with Entry.find(params[:id])
+        render json: Entry.find(params[:id])
     end
     
     def create
-        respond_with Entry.crate(params[:entry])
+        render json: Entry.crate(params[:entry])
     end
     
     def update
-        respond_with Entry.update(params[:id], params[:entry])
+        render json: Entry.update(params[:id], params[:entry])
     end
     
     def destroy
-        respond_with Entry.destroy(params[:id])
+        render json: Entry.destroy(params[:id])
     end
     
 end
