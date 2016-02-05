@@ -16,7 +16,7 @@ class EntriesController < ApplicationController
     end
     
     def update
-        render json: Entry.update(params[:id], params[:entry])
+        render json: Entry.update(params[:id], entry_params)
     end
     
     def destroy
