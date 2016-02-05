@@ -12,7 +12,7 @@ class EntriesController < ApplicationController
     end
     
     def create
-        render json: Entry.crate(params[:entry])
+        render json: Entry.create(entry_params)
     end
     
     def update
@@ -22,5 +22,11 @@ class EntriesController < ApplicationController
     def destroy
         render json: Entry.destroy(params[:id])
     end
+    
+    private
+    
+        def entry_params
+            params.require(:entry).permit(:name, :winner)
+        end
     
 end
