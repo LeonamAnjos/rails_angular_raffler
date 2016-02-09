@@ -2,6 +2,7 @@ class EntriesController < ApplicationController
     respond_to :json
     
     def index
+        request.format = :json
         respond_with Entry.all
     end
     
